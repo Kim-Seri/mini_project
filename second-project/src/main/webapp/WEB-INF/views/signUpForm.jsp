@@ -26,6 +26,7 @@
 		</div>
 
 		<form action="signUp" name="signUpForm" id="signUpForm" method="post">
+		<input type="hidden" name="isIdCheck" id="isIdCheck" value="false">
 			<div class="row ">
 				<div class="col-8  offset-2 bg-light border rounded py-3 ">
 					<div class="row">
@@ -47,9 +48,10 @@
 									<div class="row">
 										<div class="col-8">
 											<input type="text" name="userId" id="userId" class="form-control">
+											<label id="label1"></label>
 										</div>
 										<div class="col-4 text-end">
-											<input type="button" class="btn btn-dark" value="중복확인">
+											<input type="button" id="btnIdCheck" class="btn btn-dark" value="중복확인">
 										</div>
 									</div>
 							</div>
@@ -91,14 +93,19 @@
 									</div>@
 								
 									<div class="col">
-										<select class="form-select" name="emailDomain" id="emailDomain">
+										<input type="text" class="form-control" name="emailDomain" id="emailDomain">					
+									</div>	
+									
+									<div class="col">
+										<select class="form-select" name="selectDomain" id="selectDomain">
 											<option>직접 입력</option>
 											<option>네이버</option>
 											<option>다음</option>
 											<option>구글</option>
 											<option>카카오</option>
 										</select>					
-									</div>	
+									</div>
+									
 								</div>
 								</div>
 							</div>
@@ -117,63 +124,36 @@
 						
 						
 						
-						<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+						<div class="btn-group mt-5" role="group" aria-label="Basic radio toggle button group">
 						
-							<div class="row">
+							<div class="row g-3">
 								<div class="col-4">
-									<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-								    <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
+									<input type="radio" class="btn-check" name="interest" id="economic" value="경제" checked>
+								    <label class="btn btn-outline-dark" for="economic">경제</label>
 								</div>
 								<div class="col-4">
-									<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-								  	<label class="btn btn-outline-primary" for="btnradio2">Radio 2</label>
+									<input type="radio" class="btn-check" name="interest" id="politics" value="정치">
+								  	<label class="btn btn-outline-dark" for="politics">정치</label>
 								</div>
 								<div class="col-4">
-									<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-								  	<label class="btn btn-outline-primary" for="btnradio3">Radio 3</label>
+									<input type="radio" class="btn-check" name="interest" id="social" value="사회">
+								  	<label class="btn btn-outline-dark" for="social">사회</label>
 								</div>	  						
 	
 								  <div class="col-4">
-									<input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" checked>
-								    <label class="btn btn-outline-primary" for="btnradio4">Radio 4</label>
+									<input type="radio" class="btn-check" name="interest" id="tech" value="기술">
+								    <label class="btn btn-outline-dark" for="tech">기술</label>
 								</div>
 								<div class="col-4">
-									<input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off">
-								  	<label class="btn btn-outline-primary" for="btnradio5">Radio 5</label>
+									<input type="radio" class="btn-check" name="interest" id="culture" value="문화">
+								  	<label class="btn btn-outline-dark" for="culture">문화</label>
 								</div>
 								<div class="col-4">
-									<input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off">
-								  	<label class="btn btn-outline-primary" for="btnradio6">Radio 6</label>
+									<input type="radio" class="btn-check" name="interest" id="entertainment" value="연예">
+								  	<label class="btn btn-outline-dark" for="entertainment">연예</label>
 								</div>	 					
 							</div>
 						
-						</div>
-						
-						
-						
-						
-						<div class="row mt-5 mb-3">
-							<div class="col text-center">
-								<input type="button"  value="경제" class="btn btn-dark w-50">
-							</div>
-							<div class="col text-center">
-								<input type="button"  value="정치" class="btn btn-dark w-50">
-							</div>
-							<div class="col text-center">
-								<input type="button"  value="사회" class="btn btn-dark w-50">
-							</div>
-						</div>
-						
-						<div class="row my-3">
-							<div class="col text-center">
-								<input type="button"  value="기술" class="btn btn-dark w-50">
-							</div>
-							<div class="col text-center">
-								<input type="button"  value="문화" class="btn btn-dark w-50">
-							</div>
-							<div class="col text-center">
-								<input type="button"  value="연예" class="btn btn-dark w-50">
-							</div>
 						</div>
 				
 					</div>

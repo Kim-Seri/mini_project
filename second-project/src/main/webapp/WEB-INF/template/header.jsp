@@ -9,8 +9,10 @@
 	<!-- 버튼 영역 -->
 	<div class="row mb-5">
 	<div class="col text-end">
-		<a href="loginForm" class="btn btn-outline-dark me-3">LOGIN</a>
-		<a href="signUpForm" class="btn btn-outline-dark">SIGN-UP</a>
+		<a href="loginForm" class="btn btn-dark me-3">LOGIN</a>
+		<a href="logout" class="btn btn-dark me-3">LOGOUT</a>
+		<a href="signUpForm" class="btn btn-dark me-3"">SIGN-UP</a>
+		<a href="writeForm" class="btn btn-outline-dark">UPLOAD</a>
 	</div>
 	<div class="col-1">
 	</div>

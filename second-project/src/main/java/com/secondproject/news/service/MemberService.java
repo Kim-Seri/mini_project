@@ -13,4 +13,6 @@ public interface MemberService {
 	//회원정보를 가져오는 메서드
 	public abstract Member getMember(String id);
 
+	public abstract boolean  overIdCheck(String id);
+
 }

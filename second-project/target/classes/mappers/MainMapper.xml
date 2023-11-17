@@ -2,10 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
-	
+									
 <mapper namespace="com.secondproject.news.mappers.MainMapper" >
 	
+	<insert id="insertNews" parameterType="News">
+		INSERT INTO News(news_writer, title, content, category_id, image, news_date)
+		VALUES(#{writer}, #{title}, #{content}, #{categoryId}, #{image}, SYSDATE())
+	</insert>
 	
+	<select id="getCategory" resultType="Category">
+		SELECT category_id categoryId
+		FROM Category
+	</select>
+	
+	<select id="getNews" resultType="News" resultMap="MainResultMap">
+		SELECT *
+		FROM News
+		WHERE category_id=#{id}
+	</select>
 
-
+	<resultMap id="MainResultMap" type="News" >
+		<id property="no" column="news_no"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="categoryId" column="category_id"/>
+		<result property="image" column="image"/>
+		<result property="regDate" column="news_date"/>
+		<result property="writer" column="news_writer"/>
+	</resultMap>
+	
+ 
 </mapper>

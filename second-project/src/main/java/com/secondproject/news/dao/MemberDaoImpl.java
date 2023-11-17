@@ -20,7 +20,7 @@ public class MemberDaoImpl implements MemberDao {
 		sqlSession.insert(NAME_SPACE + ".signUpMember", m);	
 	}
 	
-	// 로그인
+	// 회원정보 가져오기
 	@Override
 	public Member getMember(String id) {
 		return sqlSession.selectOne(NAME_SPACE+".getMember",id);

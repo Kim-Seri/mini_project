@@ -30,5 +30,6 @@
 	
 	<view-controller path="/signUpForm" view-name="/signUpForm"/>
 	<view-controller path="/loginForm" view-name="loginForm" />
+	<view-controller path="/writeForm" view-name="writeForm" />
 	
 </beans:beans>

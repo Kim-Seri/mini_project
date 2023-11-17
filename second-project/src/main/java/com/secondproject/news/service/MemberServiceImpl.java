@@ -50,5 +50,16 @@ public class MemberServiceImpl implements MemberService {
 	public Member getMember(String id) {
 		return memberDao.getMember(id);
 	}
+	
+	//아이디 중복확인 메서드
+		@Override
+		public boolean overIdCheck(String id) {
+			boolean result=false;
+			Member m=memberDao.getMember(id);
+			if(m==null) {
+				result=true;
+			}
+			return result;
+		}
 
 }

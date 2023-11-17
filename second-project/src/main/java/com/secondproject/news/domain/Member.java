@@ -11,6 +11,7 @@ public class Member {
 	private String email;
 	private Timestamp signUpDate;
 	private String categoryId;
+	
 	public String getId() {
 		return id;
 	}

@@ -6,15 +6,22 @@
 <mapper namespace="com.secondproject.news.mappers.MemberMapper" >
 	
 	<insert id="signUpMember" parameterType="Member">
-		INSERT INTO User 
+		INSERT INTO User (user_id, pass, user_name, phone, email, user_date, category_id)
 		VALUES(#{id}, #{pass}, #{name},#{phone},#{email}, SYSDATE(), #{categoryId})
 	</insert>
 	
-	<select id="getMember" resultType="Member">
-		SELECT *
-		FROM User
-		WHERE user_id=#{id}
+	<select id="getMember" resultType="Member" resultMap="MemberResultMap">
+		SELECT * FROM User WHERE user_id=#{id}
 	</select>
-
+	
+	<resultMap id="MemberResultMap" type="Member">
+		<id property="id" column="user_id"/>
+		<result property="pass" column="pass"/>
+		<result property="name" column="user_name"/>
+		<result property="phone" column="phone"/>
+		<result property="email" column="email"/>
+		<result property="signUpDate" column="user_date"/>
+		<result property="categoryId" column="category_id"/>
+	</resultMap>
 
 </mapper>
