@@ -1,5 +1,6 @@
 package com.secondproject.news.service;
 
+import java.util.List;
 import java.util.Map;
 
 import com.secondproject.news.domain.News;
@@ -14,4 +15,6 @@ public interface MainService {
 		
 		//뉴스
 		public Map<String,Object> getNews(String id);
+
+		public List<News> getNewsAll();
 }

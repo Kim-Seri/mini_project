@@ -22,6 +22,12 @@
 		WHERE category_id=#{id}
 		ORDER BY news_no DESC
 	</select>
+	
+	<select id="getNewsAll" resultType="News" resultMap="MainResultMap">
+		SELECT *
+		FROM News
+		ORDER BY news_no DESC
+	</select>
 
 
 	<resultMap id="MainResultMap" type="News" >

@@ -35,6 +35,12 @@ public class MainDaoImpl implements MainDao {
 			return sqlSession.selectList(NAME_SPACE+".getNews",id);
 		}
 		
+		
+		//모든뉴스가져오기
+		@Override
+		public List<News> getNewsAll() {
+			return sqlSession.selectList(NAME_SPACE+".getNewsAll");
+		}
 	
 
 }

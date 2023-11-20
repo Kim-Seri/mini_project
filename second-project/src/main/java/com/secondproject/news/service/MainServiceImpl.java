@@ -38,4 +38,10 @@ public class MainServiceImpl implements MainService {
 		modelMap.put("nList", nList);
 		return modelMap;
 	}
+	
+	@Override
+	public List<News> getNewsAll() {
+		
+		return mainDao.getNewsAll();
+	}
 }

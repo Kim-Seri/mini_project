@@ -1,10 +1,13 @@
 package com.secondproject.news.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.secondproject.news.domain.Member;
+import com.secondproject.news.domain.News;
 
 @Repository
 public class MemberDaoImpl implements MemberDao {
@@ -25,5 +28,7 @@ public class MemberDaoImpl implements MemberDao {
 	public Member getMember(String id) {
 		return sqlSession.selectOne(NAME_SPACE+".getMember",id);
 	}
+	
+
 
 }
