@@ -68,21 +68,5 @@
   </div>
 </div>
 
-<script>
-        // Ajax를 이용하여 외부 파일의 내용을 불러와 모달에 삽입
-        $(document).ready(function () {
-            $.ajax({
-                type: 'GET',
-                url: 'regulation.jsp', // 외부 파일 경로
-                success: function (data) {
-                    $('#regulationModalBody').html(data);
-                },
-                error: function () {
-                    console.error('Failed to load external content.');
-                }
-            });
-        });
-    </script>
-
 </body>
 </html>

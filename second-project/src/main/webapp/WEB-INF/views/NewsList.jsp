@@ -16,7 +16,7 @@
   <c:forEach var="na" items="${nListAll}">
 	    <tr>
 		      <td>${na.no}</td>
-		      <td><a href="NewsDetail?no=${na.no}" class="text-decoration-none link-secondary">${na.title}</a></td>
+		      <td><a href="newsDetail?news_no=${na.no}" class="text-decoration-none link-secondary">${na.title}</a></td>
 		      <td>${na.categoryId}</td>
 		      <td>${na.writer}</td>
 		       <td><fmt:formatDate value="${na.regDate}" pattern="yyyy-MM-dd" /></td>

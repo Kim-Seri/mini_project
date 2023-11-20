@@ -1,10 +1,12 @@
 package com.secondproject.news.controller;
 
 import java.io.File;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -98,9 +100,20 @@ public class mainController {
 	
 	// 기사 디테일 페이지
 	@RequestMapping("/newsDetail")
-	public String newsDetail() {
+	public String newsDetail(Model model, @RequestParam("news_no") int no) {
+		
+		News n = mainService.getNewsDetail(no);
+		model.addAttribute("news", n);
 		
 		return "newsDetail";
+	}
+	
+	// 기사 수정하기
+	@RequestMapping(value="/update", method=RequestMethod.GET)
+	public String updateNews(Model model, PrintWriter out, HttpServletResponse response, @RequestParam("news_no") int no) {
+		
+		News n = mainService.getNewsDetail(no);
+		return "updateForm";
 	}
 	
 

@@ -58,4 +58,16 @@ public class MainServiceImpl implements MainService {
 		}
 		return categoryNewsMap;
 	}
+
+
+	@Override
+	public News getNewsDetail(int no) {
+		return mainDao.getNewsDetail(no);
+	}
+
+
+	@Override
+	public void updateNews(News news) {
+		mainDao.updateNews(news);
+	}
 }

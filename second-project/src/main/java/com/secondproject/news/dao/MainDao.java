@@ -20,5 +20,11 @@ public interface MainDao {
 		
 		//카테고리별 뉴스 3 가져오기
 			public abstract List<News> getCategoryNews(String id);
+		
+		// 기사 세부 정보 가져오기
+		public abstract News getNewsDetail(int no);
+		
+		// 기사 세부 정보 수정하기
+		public abstract void updateNews(News news);
 
 }

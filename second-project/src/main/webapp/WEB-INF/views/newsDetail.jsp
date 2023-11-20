@@ -12,7 +12,7 @@
 		<!-- 기사 타이틀 영역 -->
 		<div class="row">
 		<div class="col">
-			<h4 class="fw-bold">뉴스 기사 타이틀</h4>
+			<h4 class="fw-bold">${news.title}</h4>
 		</div>
 		</div>
 		
@@ -21,7 +21,7 @@
 			카테고리
 		</div>
 		<div class="col">
-			카테고리 이름
+			${news.categoryId}
 		</div>
 		</div>
 		
@@ -30,7 +30,7 @@
 			작성자
 		</div>
 		<div class="col">
-			작성자 이름
+			${news.writer}
 		</div>
 		</div>
 		
@@ -39,11 +39,11 @@
 			작성일
 		</div>
 		<div class="col">
-			작성일
+			${news.regDate}
 		</div>
 		</div>
 		
-		<!-- 좋아요, 조회수 출력 -->
+		<!-- 좋아요, 조회수 출력 (시간 남으면!) -->
 		<div class="row mt-3">
 			<div class="col-1 fw-bold">
 				좋아요
@@ -62,7 +62,17 @@
 		<!-- 기사 내용 본문 영역 -->
 		<div class="row mt-5">
 		<div class="col p-3 mb-2 bg-body-tertiary rounded-3">
-			내용 본문
+			${news.content}
+		</div>
+		</div>
+		
+		<div class="row mt-5">
+		<div class="col text-center">
+			
+			<input type="button" class="btn btn-dark me-2" id="detailScrap" value="스크랩하기"/>
+			<input type="button" class="btn btn-outline-success me-2" id="detailModify" value="수정하기"/>
+			<input type="button" class="btn btn-outline-danger" id="detailDelete" value="삭제하기"/>
+			
 		</div>
 		</div>
 	

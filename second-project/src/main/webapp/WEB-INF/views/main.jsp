@@ -60,13 +60,13 @@
 						  <c:forEach var="map" items="${newsMap}">
 						    <div class="col-3 p-3 border border-1 border-dark rounded-2 m-3">
 						    
-						      <a href="" class="btn btn-outline-dark">${map.value.get(0).title}</a>
+						      <a href="#" class="btn btn-outline-dark">${map.value.get(0).title}</a>
 			
-						      <p>카테고리 설명</p>
+						      <p class="mt-3">카테고리 설명</p>
 						      <ul>
 						        <c:forEach var="na" items="${map.value}" varStatus="loop">
 						   
-						            <li><a href="newsDetail?news_no=${na.no}" class="btn btn-dark">${na.title}</a></li>
+						            <li><a href="newsDetail?news_no=${na.no}" class="text-decoration-none text-secondary">${na.title}</a></li>
 						          
 						        </c:forEach>
 						      </ul>

@@ -21,5 +21,9 @@ public interface MainService {
 		//뉴스
 		public Map<String,List<News>> getCategoryNews();
 		
+		public News getNewsDetail(int no);
+		
+		// 뉴스 기사 내용 업데이트
+		public abstract void updateNews(News news);
 	
 }

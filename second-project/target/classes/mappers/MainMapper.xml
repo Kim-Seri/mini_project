@@ -36,6 +36,17 @@
 		FROM News
 		ORDER BY news_no DESC
 	</select>
+	
+	<select id="getNewsDetail" resultType="News" resultMap="MainResultMap">
+		SELECT * 
+		FROM News
+		WHERE news_no=#{no}
+	</select>
+	
+	<update id="updateNews" parameterType="News">
+		UPDATE News SET title=#{title}, content=#{content}
+		WHERE news_no=#{no}
+	</update>
 
 
 	<resultMap id="MainResultMap" type="News" >
