@@ -1,6 +1,7 @@
 package com.secondproject.news.controller;
 
 import java.io.File;
+import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,9 +27,22 @@ public class mainController {
 	@Autowired
 	private MainService mainService;
 	
+	@RequestMapping(value="/NewsList")
+	public String NewsList(Model model) {
+		
+		List<News> nListAll=mainService.getNewsAll();
+		model.addAttribute("nListAll",nListAll);
+		
+		return "NewsList";
+	}
+	
 	@RequestMapping(value={"/", "/main"})
 	public String main(Model model,HttpSession session) {
 		
+
+		List<News> nListAll=mainService.getNewsAll();
+		
+		model.addAttribute("nListAll",nListAll);
 		model.addAllAttributes(mainService.getCategory());
 		
 		

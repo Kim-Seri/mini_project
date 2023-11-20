@@ -49,20 +49,27 @@
 					<div class="offset-1 p-5">
 					
 						<div class="row mb-3">
-						<div class="col">
-							<h3>카테고리별 뉴스</h3>
+							<div class="col-6">
+								<h3>카테고리별 뉴스</h3>
+							</div>
+							<div class="col-6 text-center">
+								<a href="NewsList" class="btn btn-outline-dark">전체 리스트</a>
+							</div>
 						</div>
-						</div>
-						
 						<div class="row mb-5">
-							<c:forEach var="c" items="${cList}" >
-								<div class="col-3 p-3 border border-1 border-dark rounded-2 m-3">
-									<a href="#" class="btn btn-outline-dark">${c.categoryId}</a>
-										<p>카테고리 설명</p>
-									<ul>
-									</ul>
-								</div>
-							</c:forEach>
+						  <c:forEach var="c" items="${cList}" >
+						    <div class="col-3 p-3 border border-1 border-dark rounded-2 m-3">
+						      <a href="" class="btn btn-outline-dark">${c.categoryId}</a>
+						      <p>카테고리 설명</p>
+						      <ul>
+						        <c:forEach var="na" items="${nListAll}" varStatus="loop">
+						          <c:if test="${na.categoryId == c.categoryId and loop.index<3}">
+						            <li><a href="newsDetail?news_no=${na.no}" class="btn btn-dark">${na.title}</a></li>
+						          </c:if>
+						        </c:forEach>
+						      </ul>
+						    </div>
+						  </c:forEach>
 						</div>
 					</div>
 					</div>
