@@ -5,37 +5,6 @@
 <div class="row">
 <div class="col">
 	
-	<!-- 마이페이지 헤더 -->
-	<div class="row" id="header" >
-	<div class="col py-4">
-	
-			<!-- 버튼 영역 -->
-			<div class="row mb-5">
-			<div class="col text-end">
-				<a href="logout" class="btn btn-dark me-3">LOGOUT</a>
-				<a href="writeForm" class="btn btn-outline-dark">UPLOAD</a>
-			</div>
-			<div class="col-1">
-			</div>
-			</div>
-			
-			<!-- 텍스트 영역 -->
-			<div class="row">
-			<div class="col offset-1">
-				<h2>마이페이지</h2>
-				<p>
-					(내용 수정 필요)
-					${sessionScope.member.name} 님의 마이페이지
-				</p>
-			</div>
-			
-			<div class="col-4" id="img_header">
-			</div>
-			</div>
-
-	</div>
-	</div>
-	
 	<!-- 기본 정보 영역 -->
 	<div class="row">
 	<div class="col-10 offset-1 border border-2 border-dark rounded-3 mt-5 p-5">
