@@ -66,8 +66,8 @@ public class mainController {
 	@RequestMapping(value="/writeProcess", method=RequestMethod.POST)
 	public String insertNews(Model model,HttpServletRequest request, HttpSession session, String writer, @RequestParam(value="selectCategory") String categoryId, String title, String content, @RequestParam(value="file1", required=false) MultipartFile multipartFile) throws Exception, Throwable {
 		
-		System.out.println("originName : " + multipartFile.getOriginalFilename());
-		System.out.println("Name : " + multipartFile.getName());
+//		System.out.println("originName : " + multipartFile.getOriginalFilename());
+//		System.out.println("Name : " + multipartFile.getName());
 		
 		News news = new News();
 		news.setWriter(writer);
@@ -95,6 +95,12 @@ public class mainController {
 		return "redirect:main";
 	}
 	
+	// 기사 디테일 페이지
+	@RequestMapping("/newsDetail")
+	public String newsDetail() {
+		
+		return "newsDetail";
+	}
 	
 
 }
