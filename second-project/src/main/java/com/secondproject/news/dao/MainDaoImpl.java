@@ -34,5 +34,7 @@ public class MainDaoImpl implements MainDao {
 			
 			return sqlSession.selectList(NAME_SPACE+".getNews",id);
 		}
+		
+	
 
 }

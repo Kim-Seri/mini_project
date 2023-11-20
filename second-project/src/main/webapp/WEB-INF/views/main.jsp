@@ -55,28 +55,19 @@
 						</div>
 						
 						<div class="row mb-5">
-							<c:forEach var="c" items="${cList}" varStatus="loop">
-								
+							<c:forEach var="c" items="${cList}" >
 								<div class="col-3 p-3 border border-1 border-dark rounded-2 m-3">
-									<a><h4>${c.categoryId}</h4></a>
-									<p>카테고리 설명</p>
-									
+									<a href="#" class="btn btn-outline-dark">${c.categoryId}</a>
+										<p>카테고리 설명</p>
 									<ul>
-										<li>기사 헤드라인</li>
 									</ul>
-									
 								</div>
-								
 							</c:forEach>
-						
 						</div>
-						
 					</div>
 					</div>
-					
 				</div>
 				</div>
-				
 			</div>
 			</div>
 			

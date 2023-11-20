@@ -15,4 +15,6 @@ public interface MainDao {
 		//카테고리별 뉴스 가져오기
 		public abstract List<News> getNews(String id);
 
+		
+
 }

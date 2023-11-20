@@ -13,13 +13,16 @@
 	<select id="getCategory" resultType="Category">
 		SELECT category_id categoryId
 		FROM Category
+		ORDER BY category_no;
 	</select>
 	
 	<select id="getNews" resultType="News" resultMap="MainResultMap">
 		SELECT *
 		FROM News
 		WHERE category_id=#{id}
+		ORDER BY news_no DESC
 	</select>
+
 
 	<resultMap id="MainResultMap" type="News" >
 		<id property="no" column="news_no"/>
