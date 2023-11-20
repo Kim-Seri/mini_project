@@ -1,6 +1,9 @@
 package com.secondproject.news.dao;
 
+import java.util.List;
+
 import com.secondproject.news.domain.Member;
+import com.secondproject.news.domain.News;
 
 public interface MemberDao {
 	
@@ -9,5 +12,7 @@ public interface MemberDao {
 	
 	//회원정보 가져오기
 	public abstract Member getMember(String id);
+
+	
 
 }
