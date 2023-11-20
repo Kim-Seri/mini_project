@@ -44,4 +44,18 @@ public class MainServiceImpl implements MainService {
 		
 		return mainDao.getNewsAll();
 	}
+
+
+	@Override
+	public Map<String, List<News>> getCategoryNews() {
+		List<Category> cList=mainDao.getCategory();
+		Map<String, List<News>> categoryNewsMap=new HashMap<>();
+		
+		for(Category c:cList) {
+			//categoryNewsMap.put("a"+c.getCategoryNo(), mainDao.getCategoryNews(c.getCategoryId()));
+			categoryNewsMap.put("a"+c.getCategoryId(), mainDao.getCategoryNews(c.getCategoryId()));
+			//("경제",List) ("문화",List)
+		}
+		return categoryNewsMap;
+	}
 }

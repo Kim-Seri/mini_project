@@ -44,6 +44,7 @@ public class mainController {
 		
 		model.addAttribute("nListAll",nListAll);
 		model.addAllAttributes(mainService.getCategory());
+		model.addAttribute("newsMap",mainService.getCategoryNews());
 		
 		
 		// 1. 로그인 여부 확인

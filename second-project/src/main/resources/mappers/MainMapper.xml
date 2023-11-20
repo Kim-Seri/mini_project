@@ -11,7 +11,7 @@
 	</insert>
 	
 	<select id="getCategory" resultType="Category">
-		SELECT category_id categoryId
+		SELECT category_id categoryId, category_no categoryNo
 		FROM Category
 		ORDER BY category_no;
 	</select>
@@ -21,6 +21,14 @@
 		FROM News
 		WHERE category_id=#{id}
 		ORDER BY news_no DESC
+	</select>
+	
+	<select id="getCategoryNews" resultType="News" resultMap="MainResultMap">
+		SELECT *
+		FROM News
+		WHERE category_id=#{id}
+		ORDER BY news_date DESC
+		LIMIT 0,3
 	</select>
 	
 	<select id="getNewsAll" resultType="News" resultMap="MainResultMap">

@@ -17,4 +17,9 @@ public interface MainService {
 		public Map<String,Object> getNews(String id);
 
 		public List<News> getNewsAll();
+		
+		//뉴스
+		public Map<String,List<News>> getCategoryNews();
+		
+	
 }
