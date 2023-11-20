@@ -27,7 +27,7 @@
 		SELECT *
 		FROM News
 		WHERE category_id=#{id}
-		ORDER BY news_date DESC
+		ORDER BY news_no DESC
 		LIMIT 0,3
 	</select>
 	

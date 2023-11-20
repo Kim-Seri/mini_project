@@ -60,7 +60,7 @@
 						  <c:forEach var="map" items="${newsMap}">
 						    <div class="col-3 p-3 border border-1 border-dark rounded-2 m-3">
 						    
-						      <a href="#" class="btn btn-outline-dark">${map.value.get(0).title}</a>
+						      <a href="#" class="btn btn-outline-dark">${map.value.get(0).categoryId}</a>
 			
 						      <p class="mt-3">카테고리 설명</p>
 						      <ul>
