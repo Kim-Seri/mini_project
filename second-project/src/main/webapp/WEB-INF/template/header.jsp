@@ -11,10 +11,18 @@
 		<!-- 버튼 영역 -->
 		<div class="row mb-5">
 		<div class="col text-end">
+			<!-- 로그인 상태일 때 -->
 			<c:if test="${sessionScope.isLogin}">
-				<a href="logout" class="btn btn-dark me-3">LOGOUT</a>
-				<a href="writeForm" class="btn btn-outline-dark me-3">UPLOAD</a>
+				<c:if test="${! isMyPage}">
+					<a href="logout" class="btn btn-dark me-3">LOGOUT</a>
+					<a href="writeForm" class="btn btn-outline-dark me-3">UPLOAD</a>
 					<a href="myPage" class="btn btn-outline-dark">MY PAGE</a>
+				</c:if>		
+				<c:if test="${isMyPage}">
+					<a href="logout" class="btn btn-dark me-3">LOGOUT</a>
+					<a href="writeForm" class="btn btn-outline-dark me-3">UPLOAD</a>
+					<a href="main" class="btn btn-outline-dark">HOME</a>
+				</c:if>		
 			</c:if>
 			
 			<c:if test="${!sessionScope.isLogin}">
@@ -33,7 +41,7 @@
 		<div class="col offset-1">
 			<div class="row mt-5">		
 			<div class="col">
-				<h1>뉴스 블로그</h1>
+				<h1>${isMyPage ? "마이페이지" : "뉴스 블로그"}</h1>
 			</div>
 			</div>
 			<div class="row mt-5">
