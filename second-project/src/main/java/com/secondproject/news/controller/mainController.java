@@ -27,7 +27,7 @@ public class mainController {
 	private MainService mainService;
 	
 	@RequestMapping(value={"/", "/main"})
-public String main(Model model,HttpSession session) {
+	public String main(Model model,HttpSession session) {
 		
 		model.addAllAttributes(mainService.getCategory());
 		

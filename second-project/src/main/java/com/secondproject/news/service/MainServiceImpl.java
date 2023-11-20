@@ -24,18 +24,18 @@ public class MainServiceImpl implements MainService {
 
 	
 	//카테고리 가져오기
-		public Map<String,Object> getCategory(){
-			List<Category> cList=mainDao.getCategory(); 
-			Map <String,Object> modelMap=new HashMap<>();
-			modelMap.put("cList", cList);
-			return modelMap;
-		}
-		
-		//카테고리별 뉴스 가져오기
-		public Map<String,Object> getNews(String id){
-			List<News> nList=mainDao.getNews(id);
-			Map<String,Object> modelMap=new HashMap<>();
-			modelMap.put("nList", nList);
-			return modelMap;
-		}
+	public Map<String,Object> getCategory(){
+		List<Category> cList=mainDao.getCategory(); 
+		Map <String,Object> modelMap=new HashMap<>();
+		modelMap.put("cList", cList);
+		return modelMap;
+	}
+	
+	//카테고리별 뉴스 가져오기
+	public Map<String,Object> getNews(String id){
+		List<News> nList=mainDao.getNews(id);
+		Map<String,Object> modelMap=new HashMap<>();
+		modelMap.put("nList", nList);
+		return modelMap;
+	}
 }

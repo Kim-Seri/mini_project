@@ -9,14 +9,15 @@
 <style>
 	
 	#header {
-		border-style:solid;
+/* 		border-style:solid;
 	 　border-width: 20px;
 		border-color: #0f4c81;
-		border-radius: 20px;
+		border-radius: 20px; */
+		/* background-color: #34558b; */
 	}
 	
 	#img_header {
-		background-image: url('<%= request.getContextPath() %>/resources/images/speech-7228844_1280.jpg');
+		background-image: url('<%= request.getContextPath() %>/resources/images/news window landing page_5364971.png');
         background-repeat: no-repeat;
         background-size: contain;
         height: 300px;
