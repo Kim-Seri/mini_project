@@ -5,12 +5,12 @@ $(function() {
 	// writeForm 유효성 검사
 	$("#writeForm").on("submit", function(){
 		
-		if("#title").val().length <= 0) {
+		if($("#title").val().length <= 0) {
 			alert("제목을 입력해주세요.");
 			return false;
 		}
 	
-		if("#content").val().length <= 0) {
+		if($("#content").val().length <= 0) {
 			alert("내용을 입력해주세요.");
 			return false;
 		}
@@ -20,20 +20,20 @@ $(function() {
 	// 게시글 수정
 	$("#detailModify").on("click", function() {
 		
-		$("#updateForm").attr("action", "update");
-		$("#updateForm").submit();
+		$("#checkForm").attr("action", "update");
+		$("#checkForm").submit();
 		
 	});
 	
 	// updateForm 유효성 검사
 	$("#updateForm").on("submit", function(){
 		
-		if("#title").val().length <= 0) {
+		if($("#title").val().length <= 0) {
 		alert("제목을 입력해주세요.");
 		return false;
 		}
 	
-		if("#content").val().length <= 0) {
+		if($("#content").val().length <= 0) {
 			alert("내용을 입력해주세요.");
 			return false;
 		}

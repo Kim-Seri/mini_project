@@ -84,6 +84,8 @@ public class mainController {
 			UUID uid = UUID.randomUUID();
 			String fileName = uid.toString() + "_" + multipartFile.getOriginalFilename();
 			File file = new File(filePath,fileName);
+			System.out.println(fileName);
+			System.out.println(filePath);
 			
 			multipartFile.transferTo(file);
 			news.setImage(fileName);
@@ -110,10 +112,19 @@ public class mainController {
 	
 	// 기사 수정하기
 	@RequestMapping(value="/update", method=RequestMethod.GET)
-	public String updateNews(Model model, PrintWriter out, HttpServletResponse response, @RequestParam("news_no") int no) {
+	public String updateNews(Model model, PrintWriter out, HttpServletResponse response, int no) {
 		
 		News n = mainService.getNewsDetail(no);
+		model.addAttribute("news",n);
 		return "updateForm";
+	}
+	
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public String updateNews(Model model, HttpServletResponse response, int no) {
+		
+		News n = mainService.getNewsDetail(no);
+		model.addAttribute("news",n);
+		return "redirect:main";
 	}
 	
 
