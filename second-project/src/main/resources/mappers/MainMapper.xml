@@ -44,9 +44,14 @@
 	</select>
 	
 	<update id="updateNews" parameterType="News">
-		UPDATE News SET title=#{title}, content=#{content}
+		UPDATE News SET title=#{title}, content=#{content}, image=#{image}
 		WHERE news_no=#{no}
 	</update>
+	
+	<delete id="deleteNews">
+		DELETE FROM News
+		WHERE news_no=#{no}
+	</delete>
 
 
 	<resultMap id="MainResultMap" type="News" >

@@ -23,7 +23,7 @@
 			
 			
 			<!-- 기사 작성 영역 - 폼 열기 -->	
-			<form name="updateForm" id="updateForm" action="update" method="post" enctype="multipart/form-data">
+			<form name="updateForm" id="updateForm" action="updateProcess" method="post" enctype="multipart/form-data">
 				
 				<input type="hidden" name="no" value="${news.no}">
 			
@@ -66,7 +66,7 @@
 						
 						<div class="col-12 mt-3">
 							<label for="content" class="form-label fw-bold">내용</label>
-					 		<textarea name="content" id="content" class="form-control" rows="10"></textarea>
+					 		<textarea name="content" id="content" class="form-control" rows="10">${news.content}</textarea>
 						</div>
 						
 						<div class="col-12 mt-3">
@@ -101,7 +101,7 @@
 						저장된 기사는 추후 편집 혹은 삭제가 가능합니다. 
 					</p>
 					
-					<input type="submit" value="작성완료" class="btn btn-dark mt-3"/>
+					<input type="submit" value="수정완료" class="btn btn-dark mt-3"/>
 				</div>
 				</div>
 			

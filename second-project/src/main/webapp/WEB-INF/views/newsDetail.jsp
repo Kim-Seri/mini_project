@@ -15,36 +15,36 @@
 		
 		<!-- 기사 타이틀 영역 -->
 		<div class="row">
-		<div class="col">
-			<h4 class="fw-bold">${news.title}</h4>
-		</div>
-		</div>
-		
-		<div class="row mt-3">
-		<div class="col-1 fw-bold">
-			카테고리
-		</div>
-		<div class="col">
-			${news.categoryId}
-		</div>
+			<div class="col">
+				<h4 class="fw-bold">${news.title}</h4>
+			</div>
 		</div>
 		
 		<div class="row mt-3">
-		<div class="col-1 fw-bold">
-			작성자
-		</div>
-		<div class="col">
-			${news.writer}
-		</div>
+			<div class="col-1 fw-bold">
+				카테고리
+			</div>
+			<div class="col">
+				${news.categoryId}
+			</div>
 		</div>
 		
 		<div class="row mt-3">
-		<div class="col-1 fw-bold">
-			작성일
+			<div class="col-1 fw-bold">
+				작성자
+			</div>
+			<div class="col">
+				${news.writer}
+			</div>
 		</div>
-		<div class="col">
-			${news.regDate}
-		</div>
+		
+		<div class="row mt-3">
+			<div class="col-1 fw-bold">
+				작성일
+			</div>
+			<div class="col">
+				${news.regDate}
+			</div>
 		</div>
 		
 		<!-- 좋아요, 조회수 출력 (시간 남으면!) -->
@@ -65,9 +65,16 @@
 		
 		<!-- 기사 내용 본문 영역 -->
 		<div class="row mt-5">
-		<div class="col p-3 mb-2 bg-body-tertiary rounded-3">
-			${news.content}
-		</div>
+			<div class="row my-3">
+				<div class="col">
+					<img alt="" src="resources/upload/${news.image}" style="width: 400px; height: 400px" class="img-fluid rounded mx-auto d-block">
+				</div>
+			</div>
+			<div class="row my-3">
+				<div class="col p-3 mb-2 bg-body-tertiary rounded-3" style="line-height: 250%;">
+					${news.content}
+				</div>
+			</div>
 		</div>
 		
 		<div class="row mt-5">

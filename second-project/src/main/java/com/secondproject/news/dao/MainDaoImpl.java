@@ -60,6 +60,13 @@ public class MainDaoImpl implements MainDao {
 		public void updateNews(News news) {
 			sqlSession.update(NAME_SPACE + ".updateNews", news);
 		}
+
+		//기사 삭제하기
+		@Override
+		public void deleteNews(int no) {
+			sqlSession.delete(NAME_SPACE+".deleteNews",no);
+			
+		}
 	
 
 }

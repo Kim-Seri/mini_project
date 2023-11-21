@@ -19,7 +19,7 @@
 						<div class="offset-1 p-5">
 							<div class="row">
 							<div class="col">
-								<h3>관심분야 뉴스 (분야 삽입 예정)</h3>
+								<h3>관심분야 뉴스 (${nList.get(0).categoryId})</h3>
 							</div>
 							</div>
 							
@@ -27,9 +27,9 @@
 							<c:forEach var="n" items="${nList}" varStatus="loop">
 								<c:if test="${loop.index<3}">
 									<div class="col-3 m-3 p-3 border border-1 border-dark rounded-2">
-										<img src="${n.image}" alt="150 * 150 size image">
-										<h4 class="mt-4">${n.title}</h4>
-										<p>${n.content}</p> 
+										<img src="resources/upload/${n.image}" class="img-thumbnail" alt="150 * 150 size image" style="width: 200px; height: 200px;">
+										<a href="newsDetail?news_no=${n.no}" class="text-decoration-none text-secondary fs-4 fw-bold">${n.title}</a>
+										<p class="text-end">작성자 : ${n.writer}</p>
 									</div>
 								</c:if>
 							</c:forEach>

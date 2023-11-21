@@ -70,4 +70,11 @@ public class MainServiceImpl implements MainService {
 	public void updateNews(News news) {
 		mainDao.updateNews(news);
 	}
+
+
+	@Override
+	public void deleteNews(int no) {
+		mainDao.deleteNews(no);
+		
+	}
 }

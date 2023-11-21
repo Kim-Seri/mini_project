@@ -25,5 +25,8 @@ public interface MainService {
 		
 		// 뉴스 기사 내용 업데이트
 		public abstract void updateNews(News news);
+		
+		//뉴스 기사 삭제하기
+		public abstract void deleteNews(int no);
 	
 }

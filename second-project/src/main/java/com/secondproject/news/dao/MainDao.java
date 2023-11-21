@@ -26,5 +26,8 @@ public interface MainDao {
 		
 		// 기사 세부 정보 수정하기
 		public abstract void updateNews(News news);
+		
+		//기사 삭제하기
+		public abstract void deleteNews(int no);
 
 }
