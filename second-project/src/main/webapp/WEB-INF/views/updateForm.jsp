@@ -32,7 +32,7 @@
 					
 					<div class="row">
 					<div class="col">
-						<h4>기사 작성</h4>
+						<h4>기사 수정</h4>
 					</div>
 					</div>
 					
