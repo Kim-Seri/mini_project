@@ -1,6 +1,7 @@
 package com.secondproject.news.controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 import java.util.UUID;
@@ -30,10 +31,11 @@ public class mainController {
 	private MainService mainService;
 	
 	@RequestMapping(value="/NewsList")
-	public String NewsList(Model model) {
+	public String NewsList(Model model,@RequestParam(value="pageNum", required=false, defaultValue="1") int pageNum,
+					@RequestParam(value="type", required=false, defaultValue="null") String type,
+					@RequestParam(value="keyword", required=false, defaultValue="null") String keyword) {
 		
-		List<News> nListAll=mainService.getNewsAll();
-		model.addAttribute("nListAll",nListAll);
+		model.addAllAttributes(mainService.getNewsAll(pageNum,type,keyword));
 		
 		return "NewsList";
 	}
@@ -42,9 +44,9 @@ public class mainController {
 	public String main(Model model,HttpSession session) {
 		
 
-		List<News> nListAll=mainService.getNewsAll();
 		
-		model.addAttribute("nListAll",nListAll);
+		
+		
 		model.addAllAttributes(mainService.getCategory());
 		model.addAttribute("newsMap",mainService.getCategoryNews());
 		
@@ -67,7 +69,9 @@ public class mainController {
 	}
 	
 	@RequestMapping(value="/writeProcess", method=RequestMethod.POST)
-	public String insertNews(Model model,HttpServletRequest request, HttpSession session, String writer, @RequestParam(value="selectCategory") String categoryId, String title, String content, @RequestParam(value="file1", required=false) MultipartFile multipartFile) throws Exception, Throwable {
+	public String insertNews(Model model,HttpServletRequest request, HttpSession session,
+			String writer, @RequestParam(value="selectCategory") String categoryId, String title, String content,
+			@RequestParam(value="file1", required=false) MultipartFile multipartFile) throws Exception, Throwable {
 		
 //		System.out.println("originName : " + multipartFile.getOriginalFilename());
 //		System.out.println("Name : " + multipartFile.getName());
@@ -102,10 +106,23 @@ public class mainController {
 	
 	// 기사 디테일 페이지
 	@RequestMapping("/newsDetail")
-	public String newsDetail(Model model, @RequestParam("news_no") int no) {
+	public String newsDetail(Model model, @RequestParam("news_no") int no,
+			@RequestParam(value="pageNum", required=false, defaultValue="1") int pageNum,
+			@RequestParam(value="type", required=false, defaultValue="null") String type,
+			@RequestParam(value="keyword", required=false, defaultValue="null") String keyword) {
 		
 		News n = mainService.getNewsDetail(no);
+		
+		boolean searchOption = (type.equals("null") || keyword.equals("null")) ? false:true;		
+		
 		model.addAttribute("news", n);
+		model.addAttribute("pageNum", pageNum);
+		model.addAttribute("searchOption", searchOption);
+		if(searchOption) {
+			model.addAttribute("type", type);
+			model.addAttribute("keyword", keyword);
+		}
+		
 		
 		return "newsDetail";
 	}
@@ -119,13 +136,46 @@ public class mainController {
 		return "updateForm";
 	}
 	
-	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String updateNews(Model model, HttpServletResponse response, int no) {
+	@RequestMapping(value="/updateProcess", method=RequestMethod.POST)
+	public String updateNews1(int no,String writer, @RequestParam(value="selectCategory") String categoryId, String title, String content,
+			@RequestParam(value="file1", required=false) MultipartFile multipartFile,HttpServletRequest request) throws IllegalStateException, IOException {
 		
-		News n = mainService.getNewsDetail(no);
-		model.addAttribute("news",n);
+			News news = new News();
+			news.setNo(no);
+			news.setWriter(writer);
+			news.setCategoryId(categoryId);
+			news.setTitle(title);
+			news.setContent(content);
+			
+		if(! multipartFile.isEmpty()) {
+			
+			String filePath = request.getServletContext().getRealPath(DEFAULT_PATH);
+			UUID uid = UUID.randomUUID();
+			String fileName = uid.toString() + "_" + multipartFile.getOriginalFilename();
+			File file = new File(filePath,fileName);
+			System.out.println(fileName);
+			System.out.println(filePath);
+			
+			multipartFile.transferTo(file);
+			news.setImage(fileName);
+			
+		}
+		
+		mainService.updateNews(news);
+		System.out.println(news.getCategoryId());
+		System.out.println(news.getContent());
+		System.out.println(news.getTitle());
+		System.out.println(news.getWriter());
 		return "redirect:main";
 	}
+	
+	@RequestMapping(value="/delete")
+	public String deleteNews(int no){
+		mainService.deleteNews(no);
+		return "redirect:main";
+	}
+	
+	
 	
 
 }

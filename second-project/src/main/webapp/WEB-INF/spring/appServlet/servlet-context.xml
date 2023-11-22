@@ -28,12 +28,14 @@
 	
 	<view-controller path="/" view-name="redirect:main"/>
 	
-	<view-controller path="/signUpForm" view-name="/signUpForm"/>
-	<view-controller path="/NewsList" view-name="/NewsList"/>
+	<view-controller path="/signUpForm" view-name="signUpForm"/>
+	<view-controller path="/NewsList" view-name="NewsList"/>
 	<view-controller path="/loginForm" view-name="loginForm" />
+	<view-controller path="/updateForm" view-name="updateForm" />
 	<view-controller path="/writeForm" view-name="writeForm" />
 	<view-controller path="/myPage" view-name="myPage" />
 	<view-controller path="/updateForm" view-name="updateForm" />
 	<view-controller path="/postDetail" view-name="postDetail" />
+	
 	
 </beans:beans>
