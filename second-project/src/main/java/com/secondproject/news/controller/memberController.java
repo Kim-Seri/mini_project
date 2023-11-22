@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.secondproject.news.domain.Member;
 import com.secondproject.news.service.MemberService;
 
-@Controllerx
+@Controller
 public class memberController {
 
 	@Autowired
