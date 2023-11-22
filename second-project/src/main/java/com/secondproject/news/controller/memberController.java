@@ -16,7 +16,7 @@ import com.secondproject.news.domain.Member;
 import com.secondproject.news.service.MemberService;
 
 @Controller
-public class MemberController {
+public class memberController {
 
 	@Autowired
 	private MemberService memberService;
