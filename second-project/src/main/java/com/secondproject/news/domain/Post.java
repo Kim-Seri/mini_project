@@ -6,7 +6,7 @@ public class Post {
 	
 	private int postNo;
 	private int newsNo;
-	private String useId;
+	private String userId;
 	private String comment;
 	private Timestamp regDate;
 	private String categoryId;
@@ -16,7 +16,7 @@ public class Post {
 	public Post(int postNo, int newsNo, String userId, String comment, Timestamp regDate, String categoryId) {
 		this.postNo = postNo;
 		this.newsNo = newsNo;
-		this.useId = userId;
+		this.userId = userId;
 		this.comment = comment;
 		this.regDate = regDate;
 		this.categoryId = categoryId;
@@ -38,12 +38,12 @@ public class Post {
 		this.newsNo = newsNo;
 	}
 
-	public String getUseId() {
-		return useId;
+	public String getUserId() {
+		return userId;
 	}
 
-	public void setUseId(String useId) {
-		this.useId = useId;
+	public void setUserId(String useId) {
+		this.userId = userId;
 	}
 
 	public String getComment() {

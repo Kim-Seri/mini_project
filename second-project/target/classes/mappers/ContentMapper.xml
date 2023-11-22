@@ -5,6 +5,53 @@
 									
 <mapper namespace="com.secondproject.news.mappers.ContentMapper" >
 	
-	
+	<insert id="insertScrap" parameterType="hashmap">
+		INSERT INTO Post (user_id, news_no, reg_date, category_id)
+		VALUES (#{writer}, #{newsNo}, SYSDATE(), #{newsCategory})
+	</insert>
 
+	<select id="isScrapCheck" parameterType="hashmap" resultType="Post">
+		SELECT * FROM Post
+		WHERE news_no = #{newsNo} AND user_id = #{userId}
+	</select>
+	
+	<select id="getScrapList" resultType="NewsWithPost" resultMap="NewsWithPostResultMap">
+		
+		SELECT P.post_no, N.*
+		FROM News N
+		INNER JOIN Post P ON N.news_no = P.news_no
+		WHERE P.user_id = #{userId}
+		ORDER BY news_date DESC
+	</select>
+	
+	<resultMap id="NewsWithPostResultMap" type="NewsWithPost" >
+		<id property="no" column="news_no"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="categoryId" column="category_id"/>
+		<result property="image" column="image"/>
+		<result property="regDate" column="news_date"/>
+		<result property="writer" column="news_writer"/>
+		<result property="postNo" column="post_no"/>
+	</resultMap>
+	
+	<resultMap id="MainResultMap" type="News" >
+		<id property="no" column="news_no"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="categoryId" column="category_id"/>
+		<result property="image" column="image"/>
+		<result property="regDate" column="news_date"/>
+		<result property="writer" column="news_writer"/>
+	</resultMap>
+	
+	<resultMap id="PostResultMap" type="Post">
+		<id property="postNo" column="post_no"/>
+		<result property="userId" column="user_id"/>
+		<result property="newsNo" column="news_no"/>
+		<result property="comment" column="comment"/>
+		<result property="regDate" column="reg_date"/>
+		<result property="categoryId" column="category_id"/>
+	</resultMap>
+	
 </mapper>

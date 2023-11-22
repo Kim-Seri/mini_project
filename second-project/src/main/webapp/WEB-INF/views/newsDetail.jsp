@@ -8,6 +8,7 @@
 
 	<form name="checkForm" id="checkForm">
 				<input type="hidden" name="no" id="no" value="${news.no}">
+				<input type="hidden" name="categoryId" id="categoryId" value="${news.categoryId}">
 	</form>
 	
 	<div class="row border border-2 border-dark rounded-3 p-5">
@@ -73,7 +74,7 @@
 		<div class="row mt-5">
 		<div class="col text-center">
 			
-			<input type="button" class="btn btn-dark me-2" id="detailScrap" value="스크랩하기"/>
+			<input type="button" class="btn btn-dark me-2"  id="detailScrap" value="스크랩하기"/>
 			<c:if test="${sessionScope.member.name==news.writer}">
 				<input type="button" class="btn btn-outline-success me-2" id="detailModify" value="수정하기"/>
 				<input type="button" class="btn btn-outline-danger" id="detailDelete" value="삭제하기"/>

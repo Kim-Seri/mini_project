@@ -74,12 +74,19 @@
 			<h4>스크랩한 뉴스</h4>
 		</div>
 		</div>
+
+		<div class="row mb-5">
+		 <c:forEach var="post" items="${snList}">
+		 	<div class="col-3 p-3 border border-1 border-dark rounded-2 m-3">
+		 		<a href="postDetail?no=${post.no}" class="btn btn-outline-dark"> ${post.title}</a>
+	
+				    ${post.title}
+				    ${post.categoryId}
+				    ${post.no}
+		    </div>
+		</c:forEach>
+		</div>
 		
-		<div class="row">
-		<div class="col-3">
-			
-		</div>
-		</div>
 	
 	</div>
 	</div>
