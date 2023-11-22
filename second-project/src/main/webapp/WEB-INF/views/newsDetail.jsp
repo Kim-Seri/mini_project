@@ -8,6 +8,11 @@
 
 	<form name="checkForm" id="checkForm">
 				<input type="hidden" name="no" id="no" value="${news.no}">
+				<input type="hidden" name="categoryId" id="categoryId" value="${news.categoryId}">
+				<c:if test="${ searchOption }">
+					<input type="hidden" name="type" value="${ type }" />
+					<input type="hidden" name="keyword" value="${ keyword }" />
+				</c:if>	
 	</form>
 	
 	<div class="row border border-2 border-dark rounded-3 p-5">
@@ -85,6 +90,15 @@
 				<input type="button" class="btn btn-outline-success me-2" id="detailModify" value="수정하기"/>
 				<input type="button" class="btn btn-outline-danger" id="detailDelete" value="삭제하기"/>
 			</c:if>
+			<c:if test="${ not searchOption }">	
+				&nbsp;&nbsp;<input class="btn btn-primary" type="button" value="목록보기" 
+						onclick="location.href='NewsList?pageNum=${pageNum}'"/>
+			</c:if>
+				
+			<c:if test="${searchOption }">	
+				&nbsp;&nbsp;<input class="btn btn-primary" type="button" value="목록보기" 
+						onclick="location.href='NewsList?pageNum=${pageNum}&type=${type }&keyword=${ keyword }'"/>
+			</c:if>	
 			
 			
 		</div>

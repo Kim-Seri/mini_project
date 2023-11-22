@@ -16,7 +16,7 @@ public interface MainService {
 		//뉴스
 		public Map<String,Object> getNews(String id);
 
-		public List<News> getNewsAll();
+		public Map<String,Object> getNewsAll(int pageNum, String type, String keyword);
 		
 		//뉴스
 		public Map<String,List<News>> getCategoryNews();

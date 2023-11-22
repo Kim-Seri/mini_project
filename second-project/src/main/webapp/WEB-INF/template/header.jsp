@@ -16,7 +16,8 @@
 				<c:if test="${! isMyPage}">
 					<a href="logout" class="btn btn-dark me-3">LOGOUT</a>
 					<a href="writeForm" class="btn btn-outline-dark me-3">UPLOAD</a>
-					<a href="myPage" class="btn btn-outline-dark">MY PAGE</a>
+					<a href="myPage" class="btn btn-outline-dark me-3">MY PAGE</a>
+					<a href="main" class="btn btn-outline-dark">HOME</a>
 				</c:if>		
 				<c:if test="${isMyPage}">
 					<a href="logout" class="btn btn-dark me-3">LOGOUT</a>

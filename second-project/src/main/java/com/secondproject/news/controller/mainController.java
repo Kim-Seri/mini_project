@@ -31,10 +31,11 @@ public class mainController {
 	private MainService mainService;
 	
 	@RequestMapping(value="/NewsList")
-	public String NewsList(Model model) {
+	public String NewsList(Model model,@RequestParam(value="pageNum", required=false, defaultValue="1") int pageNum,
+					@RequestParam(value="type", required=false, defaultValue="null") String type,
+					@RequestParam(value="keyword", required=false, defaultValue="null") String keyword) {
 		
-		List<News> nListAll=mainService.getNewsAll();
-		model.addAttribute("nListAll",nListAll);
+		model.addAllAttributes(mainService.getNewsAll(pageNum,type,keyword));
 		
 		return "NewsList";
 	}
@@ -43,9 +44,9 @@ public class mainController {
 	public String main(Model model,HttpSession session) {
 		
 
-		List<News> nListAll=mainService.getNewsAll();
 		
-		model.addAttribute("nListAll",nListAll);
+		
+		
 		model.addAllAttributes(mainService.getCategory());
 		model.addAttribute("newsMap",mainService.getCategoryNews());
 		
@@ -105,10 +106,23 @@ public class mainController {
 	
 	// 기사 디테일 페이지
 	@RequestMapping("/newsDetail")
-	public String newsDetail(Model model, @RequestParam("news_no") int no) {
+	public String newsDetail(Model model, @RequestParam("news_no") int no,
+			@RequestParam(value="pageNum", required=false, defaultValue="1") int pageNum,
+			@RequestParam(value="type", required=false, defaultValue="null") String type,
+			@RequestParam(value="keyword", required=false, defaultValue="null") String keyword) {
 		
 		News n = mainService.getNewsDetail(no);
+		
+		boolean searchOption = (type.equals("null") || keyword.equals("null")) ? false:true;		
+		
 		model.addAttribute("news", n);
+		model.addAttribute("pageNum", pageNum);
+		model.addAttribute("searchOption", searchOption);
+		if(searchOption) {
+			model.addAttribute("type", type);
+			model.addAttribute("keyword", keyword);
+		}
+		
 		
 		return "newsDetail";
 	}

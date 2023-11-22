@@ -34,7 +34,38 @@
 	<select id="getNewsAll" resultType="News" resultMap="MainResultMap">
 		SELECT *
 		FROM News
+		<where>
+			<if test="type == 'title'">
+				title LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="type == 'writer'">
+				writer LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="type == 'content'">
+				content LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+		</where>
+		
 		ORDER BY news_no DESC
+		LIMIT #{start}, #{num}
+		
+	</select>
+	
+	<select id="getNewsCount" resultType="int" parameterType="hashmap">
+		SELECT 
+			COUNT(*)
+		FROM News	
+		<where>
+			<if test="type == 'title'">
+				title LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="type == 'writer'">
+				news_writer LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+			<if test="type == 'content'">
+				content LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+		</where>
 	</select>
 	
 	<select id="getNewsDetail" resultType="News" resultMap="MainResultMap">
