@@ -42,7 +42,7 @@ public class Post {
 		return userId;
 	}
 
-	public void setUserId(String useId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 

@@ -29,15 +29,32 @@ public class ContentServiceImpl implements ContentService {
 
 	@Override
 	public boolean isScrapCheck(int newsNo, String userId) {
-		String check = contentDao.isScrapCheck(newsNo, userId);
+		Post check = contentDao.isScrapCheck(newsNo, userId);
+		boolean result=false;
 		
-		return check != null;
+		if(check != null) {
+			result=true;
+		}
+		
+		return result;
 	}
 
 	@Override
 	public List<NewsWithPost> getScrapList(String userId) {
 		
 		return contentDao.getScrapList(userId);
+	}
+
+	@Override
+	public Post getScrapNews(int no) {
+		
+		return contentDao.getScrapNews(no);
+	}
+
+	@Override
+	public void insertComment(String comment, int postNo) {
+		contentDao.insertComment(comment, postNo);
+		
 	}
 
 }

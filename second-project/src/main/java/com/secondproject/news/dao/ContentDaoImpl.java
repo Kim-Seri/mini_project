@@ -32,9 +32,9 @@ public class ContentDaoImpl implements ContentDao {
 	}
 
 	@Override
-	public String isScrapCheck(int newsNo, String userId) {
+	public Post isScrapCheck(int newsNo, String userId) {
 		Map<String, Object> paramMap = new HashMap<>();
-		paramMap.put("newNo", newsNo);
+		paramMap.put("newsNo", newsNo);
 		paramMap.put("userId", userId);
 		return sqlSession.selectOne(NAME_SPACE + ".isScrapCheck", paramMap);
 	}
@@ -42,6 +42,21 @@ public class ContentDaoImpl implements ContentDao {
 	@Override
 	public List<NewsWithPost> getScrapList(String userId) {
 		return sqlSession.selectList(NAME_SPACE + ".getScrapList", userId);
+	}
+
+	@Override
+	public Post getScrapNews(int no) {
+		return sqlSession.selectOne(NAME_SPACE+".getScrapNews",no);
+	}
+
+	@Override
+	public void insertComment(String comment, int postNo) {
+		Map<String,Object> paramMap=new HashMap<>();
+		paramMap.put("comment", comment);
+		paramMap.put("postNo", postNo);
+		
+		sqlSession.update(NAME_SPACE+".insertComment", paramMap);
+		
 	}
 
 
