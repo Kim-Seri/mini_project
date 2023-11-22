@@ -10,8 +10,8 @@
 		
 		<!-- 기사 타이틀 영역 -->
 		<div class="row mt-3">
-		<div class="col fw-bold">
-			타이틀
+		<div class="col-2 fw-bold">
+			제목
 		</div>
 		<div class="col">
 			${n.title}
@@ -19,7 +19,7 @@
 		</div>
 		
 		<div class="row mt-3">
-		<div class="col fw-bold">
+		<div class="col-2 fw-bold">
 			카테고리
 		</div>
 		<div class="col">
@@ -28,7 +28,7 @@
 		</div>
 		
 		<div class="row mt-3">
-		<div class="col fw-bold">
+		<div class="col-2 fw-bold">
 			작성자
 		</div>
 		<div class="col">
@@ -37,7 +37,7 @@
 		</div>
 		
 		<div class="row mt-3">
-		<div class="col fw-bold">
+		<div class="col-2 fw-bold">
 			작성일
 		</div>
 		<div class="col">
@@ -50,8 +50,17 @@
 		<div class="col-12 fw-bold mb-3">
 			내용
 		</div>
-		<div class="col-12 p-3 mb-2 bg-secondary-subtle rounded-3">
-			${n.content}
+		<div class="col-12 p-3 mb-2 bg-secondary-subtle rounded-3 ">
+		<div class="row my-3">
+			<div class="col">
+				<img src="resources/upload/${n.image}"  style="width: 400px; height: 400px" class="img-fluid rounded mx-auto d-block">
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col" style="line-height: 200%;">
+				${n.content}
+			</div>
+		</div>	
 		</div>
 		</div>
 	
@@ -64,23 +73,44 @@
 <div class="col-10 offset-1 mt-5">
 
 <form name="postWriteForm" id="postWriteForm" action="postWriteProcess" method="post">
+		<input type="hidden" name="postNo" id="postNo" value="${p.postNo}">
+		
 		<div class="row border border-2 border-dark rounded-3 p-5">
 		<div class="col">
 		
 			<div class="row mt-3">
-			<div class="col-10">
-				<label for="comment" class="form-label fw-bold">코멘트</label>
+				<div class="col-10">
+					<label for="comment" class="form-label fw-bold">코멘트</label>
+				</div>
+				<c:if test="${p.comment==null}">
+					<div class="col-12">
+						<!-- 코멘트 작성 및 저장하기 기능 추가 예정 -->
+						<textarea name="comment" id="comment" class="form-control mt-3" rows="10"></textarea>
+					</div>
+				</c:if>
+				<c:if test="${p.comment!=null}">
+					<div class="col-12">
+						<!-- 코멘트 작성 및 저장하기 기능 추가 예정 -->
+						${p.comment}
+					</div>
+				</c:if>
 			</div>
-			<div class="col-12">
-				<textarea name="comment" id="comment" class="form-control mt-3" rows="10">${n.comment}</textarea>
+		<c:if test="${p.comment==null}">
+			<div class="row">
+				<div class="col text-center">
+					<input type="submit" class="btn btn-dark mt-5" value="저장하기">	
+					<a href="myPage" class="btn btn-dark mt-5">목록가기</a>		
+				</div>
 			</div>
-			</div>
+		</c:if>
 		
-		<div class="row">
-		<div class="col text-center">
-			<input type="submit" class="btn btn-dark mt-5" value="저장하기">		
-		</div>
-		</div>
+		<c:if test="${p.comment!=null}">
+			<div class="row">
+				<div class="col text-center">
+					<a href="myPage" class="btn btn-dark mt-5">목록가기</a>	
+				</div>
+			</div>
+		</c:if>
 		
 		</div>
 		</div>

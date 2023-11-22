@@ -10,19 +10,31 @@
 		VALUES (#{writer}, #{newsNo}, SYSDATE(), #{newsCategory})
 	</insert>
 
-	<select id="isScrapCheck" parameterType="hashmap" resultType="Post">
+	<select id="isScrapCheck" parameterType="hashmap" resultType="Post" resultMap="PostResultMap">
 		SELECT * FROM Post
 		WHERE news_no = #{newsNo} AND user_id = #{userId}
 	</select>
 	
 	<select id="getScrapList" resultType="NewsWithPost" resultMap="NewsWithPostResultMap">
-		
 		SELECT P.post_no, N.*
 		FROM News N
 		INNER JOIN Post P ON N.news_no = P.news_no
 		WHERE P.user_id = #{userId}
 		ORDER BY news_date DESC
 	</select>
+	
+	<select id="getScrapNews" resultType="Post" resultMap="PostResultMap">
+		SELECT * FROM Post
+		WHERE  post_no= #{no}
+	</select>
+	
+	<update id="insertComment" parameterType="hashmap">
+		UPDATE Post
+		SET comment=#{comment}
+		WHERE post_no=#{postNo}
+	</update>
+	
+	
 	
 	<resultMap id="NewsWithPostResultMap" type="NewsWithPost" >
 		<id property="no" column="news_no"/>

@@ -23,7 +23,7 @@ import com.secondproject.news.domain.News;
 import com.secondproject.news.service.MainService;
 
 @Controller
-public class MainController {
+public class mainController {
 
 	private final static String DEFAULT_PATH = "/resources/upload/";
 

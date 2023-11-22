@@ -17,5 +17,11 @@ public interface ContentService {
 	
 	// 스크랩 리스트 출력
 	public List<NewsWithPost> getScrapList(String userId);
+	
+	//스크랩 정보 가져오기
+	public Post getScrapNews(int no);
+	
+	//코멘트 넣기
+	public void insertComment(String comment,int postNo);
 
 }

@@ -53,11 +53,7 @@
 		</div>
 		</div>
 		
-		<div class="row mt-3">
-		<div class="col">
-			<input type="button" class="btn btn-dark mt-5" value="정보수정"/>
-		</div>
-		</div>
+		
 		
 		
 		
@@ -78,11 +74,10 @@
 		<div class="row mb-5">
 		 <c:forEach var="post" items="${snList}">
 		 	<div class="col-3 p-3 border border-1 border-dark rounded-2 m-3">
-		 		<a href="postDetail?no=${post.no}" class="btn btn-outline-dark"> ${post.title}</a>
+		 		<a href="postDetail?no=${post.no}&postNo=${post.postNo}" class="btn btn-outline-dark"> ${post.title}</a>
 	
-				    ${post.title}
-				    ${post.categoryId}
-				    ${post.no}
+				 
+				 <p> 카테고리 : ${post.categoryId}</p>
 		    </div>
 		</c:forEach>
 		</div>
