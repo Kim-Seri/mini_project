@@ -4,68 +4,77 @@
 
 <div class="row my-5">
 <div class="col-10 offset-1">
-	
-	<div class="row border border-2 border-dark rounded-3 p-5 bg-body-tertiary">
-	<div class="col">
-		
-		<!-- 기사 타이틀 영역 -->
-		<div class="row mt-3">
-		<div class="col-2 fw-bold">
-			제목
-		</div>
-		<div class="col">
-			${n.title}
-		</div>
-		</div>
-		
-		<div class="row mt-3">
-		<div class="col-2 fw-bold">
-			카테고리
-		</div>
-		<div class="col">
-			${n.categoryId}
-		</div>
-		</div>
-		
-		<div class="row mt-3">
-		<div class="col-2 fw-bold">
-			작성자
-		</div>
-		<div class="col">
-			${n.writer}
-		</div>
-		</div>
-		
-		<div class="row mt-3">
-		<div class="col-2 fw-bold">
-			작성일
-		</div>
-		<div class="col">
-			${n.regDate}
-		</div>
-		</div>
-		
-		<!-- 기사 내용 본문 영역 -->
-		<div class="row mt-5">
-		<div class="col-12 fw-bold mb-3">
-			내용
-		</div>
-		<div class="col-12 p-3 mb-2 bg-secondary-subtle rounded-3 ">
-		<div class="row my-3">
+	<c:if test="${not empty n}">
+		<div class="row border border-2 border-dark rounded-3 p-5 bg-body-tertiary">
 			<div class="col">
-				<img src="resources/upload/${n.image}"  style="width: 400px; height: 400px" class="img-fluid rounded mx-auto d-block">
+				
+				<!-- 기사 타이틀 영역 -->
+				<div class="row mt-3">
+					<div class="col-2 fw-bold">
+						제목
+					</div>
+					<div class="col">
+						${n.title}
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-2 fw-bold">
+						카테고리
+					</div>
+					<div class="col">
+						${n.categoryId}
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-2 fw-bold">
+						작성자
+					</div>
+					<div class="col">
+						${n.writer}
+					</div>
+				</div>
+				
+				<div class="row mt-3">
+					<div class="col-2 fw-bold">
+						작성일
+					</div>
+					<div class="col">
+						${n.regDate}
+					</div>
+				</div>
+				
+				<!-- 기사 내용 본문 영역 -->
+				<div class="row mt-5">
+					<div class="col-12 fw-bold mb-3">
+						내용
+					</div>
+					<div class="col-12 p-3 mb-2 bg-secondary-subtle rounded-3 ">
+						<div class="row my-3">
+							<div class="col">
+								<img src="resources/upload/${n.image}"  style="width: 400px; height: 400px" class="img-fluid rounded mx-auto d-block">
+							</div>
+						</div>
+						<div class="row ">
+							<div class="col" style="line-height: 200%;">
+								${n.content}
+							</div>
+						</div>	
+					</div>
+				</div>
+			
 			</div>
 		</div>
-		<div class="row ">
-			<div class="col" style="line-height: 200%;">
-				${n.content}
-			</div>
-		</div>	
-		</div>
-		</div>
+	</c:if>
 	
-	</div>
-	</div>
+	<c:if test="${empty n}">
+		<div class="row border border-2 border-dark rounded-3 p-5 bg-body-tertiary">
+			<div class="col text-center">
+				<h3>게시글이 존재하지 않거나 삭제되었습니다.</h3>
+			</div>
+		</div>
+	</c:if>
 
 </div>
 
@@ -105,9 +114,10 @@
 		</c:if>
 		
 		<c:if test="${p.comment!=null}">
-			<div class="row">
+			<div class="row pt-5">
 				<div class="col text-center">
-					<a href="myPage" class="btn btn-dark mt-5">목록가기</a>	
+					<input type="button" class="btn btn-dark" value="목록가기" onclick="location.href='myPage'">	
+					<input type="button" class="btn btn-danger" value="삭제하기" id="postDelete">	
 				</div>
 			</div>
 		</c:if>
